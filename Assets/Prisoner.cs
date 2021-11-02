@@ -10,13 +10,14 @@ public class Prisoner : MonoBehaviour
     int cellNumber;
     [SerializeField] float speed;
     private Rigidbody2D rb2d;
+    [SerializeField] GameObject frontOfDoor;
 
     enum State {Idle, BreakDoor};
     private State state;
 
     void Start()
     {
-        state = State.Idle;
+        state = State.BreakDoor;
         rb2d = GetComponent<Rigidbody2D>();
     }
 
@@ -42,11 +43,12 @@ public class Prisoner : MonoBehaviour
 
     private void BreakDoor()
     {
-        throw new NotImplementedException();
+        MoveTo(frontOfDoor);
     }
 
-    private void MoveTo(float x, float y)
+    private void MoveTo(GameObject other)
     {
-        throw new NotImplementedException();
+        rb2d.transform.LookAt(other.transform.position);
+        rb2d.velocity = Vector3.forward.normalized * speed;
     }
 }
