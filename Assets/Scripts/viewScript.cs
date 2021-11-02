@@ -1,17 +1,11 @@
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
 
 public class viewScript:MonoBehaviour {
     [SerializeField] GameObject[] cameraArray;
     [SerializeField] GameObject staticVideo;
+    [SerializeField] AudioSource staticSFX; 
     [SerializeField] Text cellNumberText;
-
-    float videoTimer = 0.5f;
-    int selectedCamera = 0;
-
-    void Start() {
-
-    }
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.Alpha1)) {
@@ -31,10 +25,11 @@ public class viewScript:MonoBehaviour {
 
     public void changeCamera(int pressedCamera) {
         staticVideo.SetActive(true);
+        staticSFX.Play();
         for(int i = 0; i < cameraArray.Length; i++) {
             if(i == pressedCamera) {
-                cameraArray[i].SetActive(true);
                 cellNumberText.text = "Cell " + (pressedCamera + 1).ToString();
+                cameraArray[i].SetActive(true);
             } else {
                 cameraArray[i].SetActive(false);
             }
@@ -44,5 +39,6 @@ public class viewScript:MonoBehaviour {
 
     void dissableStaticVideo() {
         staticVideo.SetActive(false);
+        staticSFX.Stop();
     }
 }
