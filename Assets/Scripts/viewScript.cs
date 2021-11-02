@@ -41,7 +41,7 @@ public class viewScript:MonoBehaviour {
         }
         Invoke("dissableStaticVideo", 0.3f);
     }
-    
+
     void dissableStaticVideo() {
         staticVideo.SetActive(false);
     }
