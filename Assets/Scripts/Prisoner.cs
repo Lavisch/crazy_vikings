@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class Prisoner : MonoBehaviour
 {
-    [SerializeField] GameObject playerInfrontOfDoor, outsideYourRoom;
     [SerializeField] GameObject[] outsideOtherCells;
     [SerializeField] public int prisonerNumber;
-    [SerializeField] GameObject[] enemyDoors;
-    [SerializeField] Transform findDoor;
-    [SerializeField] Door doorScript;
+    GameObject playerInfrontOfDoor, tempLeftCalc, tempRightCalc, outsideYourRoom;
     private Rigidbody2D rgbd2D;
     int randomCellNumberAttack;
     float health = 100f;
+    Transform findDoor;
     float stress = 0f;
     float speed = 5f;
+    Door doorScript;
 
     bool isolationCell = false;
     public bool dead = false;
     bool atDoor = false;
 
-    public enum State {Idle, breakDoor, betweenRooms, Isolated, attackingOtherPrisoner, electrocuted, gasedToSleep};
+    public enum State {Idle, breakDoor, betweenRooms, attackOtherDoor, Isolated, attackingOtherPrisoner, electrocuted, gasedToSleep};
     public State currentStates;
 
     void Start() {
@@ -37,11 +36,9 @@ public class Prisoner : MonoBehaviour
                 currentStates = State.Idle;
             }
         }
-        if(isolationCell) {
-            currentStates = State.Isolated;
-        }
-        if (health <= 0)
-            dead = true;
+        if(isolationCell) currentStates = State.Isolated;
+
+        if (health <= 0) dead = true;
 
         switch (currentStates) {
             case State.Idle:
@@ -51,7 +48,10 @@ public class Prisoner : MonoBehaviour
                 BreakDoor();
                 break;
             case State.betweenRooms:
-                Invoke("AttackOtherCell", 10f);
+                Invoke("AttackOtherCell", 3f);
+                break;
+            case State.attackOtherDoor:
+                EnemyDoor();
                 break;
             case State.attackingOtherPrisoner:
                 //move to other prisoner
@@ -92,54 +92,93 @@ public class Prisoner : MonoBehaviour
 
     void BreakDoor() {
         if(!atDoor && !doorScript.destroyed) {
-            MoveTo(findDoor);
+            var findPos = findDoor.position - transform.position;
+            float angle = Mathf.Atan2(findPos.y, findPos.x) * Mathf.Rad2Deg;
+            rgbd2D.rotation = angle;
+            rgbd2D.MovePosition(rgbd2D.transform.position + (findPos * speed * Time.deltaTime));
+            if(Vector3.Distance(rgbd2D.transform.position, playerInfrontOfDoor.transform.position) < 0.1f) {
+                atDoor = true;
+            }
 
         } else if(doorScript.healthPoints > 0) {
             rgbd2D.transform.position = playerInfrontOfDoor.transform.position;
-            rgbd2D.rotation = 0;
+            if(playerInfrontOfDoor == tempRightCalc) {
+                rgbd2D.rotation = 180;
+            } else {
+                rgbd2D.rotation = 0;
+            }
             //playAnimation
             Invoke("DamageDoor", 2f);
 
         } else if(doorScript.healthPoints <= 0) {
-            if(rgbd2D.position.x != outsideYourRoom.transform.position.x) {
+            if(Vector3.Distance(rgbd2D.transform.position, outsideYourRoom.transform.position) > 0.1f) {
                 var findPos = outsideYourRoom.transform.position - transform.position;
-                rgbd2D.MovePosition(transform.position + (findPos * (speed/2) * Time.deltaTime));
+                rgbd2D.MovePosition(transform.position + (findPos * (speed / 2) * Time.deltaTime));
+            } else {
+                randomCellNumberAttack = Random.Range(0, outsideOtherCells.Length);
+                rgbd2D.transform.position = new Vector2(-40, -40);
+                rgbd2D.velocity = Vector2.zero;
+                currentStates = State.betweenRooms;
             }
         }
     }
 
     void AttackOtherCell() {
         rgbd2D.transform.position = outsideOtherCells[randomCellNumberAttack].transform.position;
-
+        atDoor = false;
+        currentStates = State.attackOtherDoor;
+        CancelInvoke();
     }
 
-    void MoveTo(Transform directionPoint) {
-        var findPos = directionPoint.position - transform.position;
-        float angle = Mathf.Atan2(findPos.y, findPos.x) * Mathf.Rad2Deg;
-        rgbd2D.rotation = angle;
-        rgbd2D.MovePosition(transform.position + (findPos * speed * Time.deltaTime));
+    void EnemyDoor() {
+        if(!atDoor && !doorScript.destroyed) {
+            var findPos = findDoor.position - transform.position;
+            float angle = Mathf.Atan2(findPos.y, findPos.x) * Mathf.Rad2Deg;
+            rgbd2D.rotation = angle;
+            rgbd2D.MovePosition(rgbd2D.transform.position + (findPos * speed * Time.deltaTime));
+            if(Vector3.Distance(rgbd2D.transform.position, playerInfrontOfDoor.transform.position) < 0.1f) {
+                atDoor = true;
+            }
+
+        } else if(doorScript.healthPoints > 0) {
+            rgbd2D.transform.position = playerInfrontOfDoor.transform.position;
+            if(playerInfrontOfDoor == tempRightCalc) {
+                rgbd2D.rotation = 180;
+            } else {
+                rgbd2D.rotation = 0;
+            }
+            //playAnimation
+            Invoke("DamageDoor", 2f);
+
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("Door")) {
-            atDoor = true;
-        }
+            findDoor = other.transform.parent.transform;
+            tempLeftCalc = findDoor.GetChild(1).gameObject;
+            tempRightCalc = findDoor.GetChild(2).gameObject;
 
-        if(other.gameObject.CompareTag("idleBorder")) {
-            rgbd2D.velocity = Vector2.zero;
+            var dist01 = Vector3.Distance(tempLeftCalc.transform.position, rgbd2D.transform.position);
+            var dist02 = Vector3.Distance(tempRightCalc.transform.position, rgbd2D.transform.position);
+
+            if(dist01 < dist02) {
+                playerInfrontOfDoor = tempLeftCalc;
+            } else {
+                playerInfrontOfDoor = tempRightCalc;
+            }
+            
+            doorScript = findDoor.GetComponentInParent<Door>();
         }
 
         if(other.gameObject.CompareTag("outside")) {
-            randomCellNumberAttack = Random.Range(0, outsideOtherCells.Length);
-            rgbd2D.transform.position = new Vector2(-40, -40);
-            rgbd2D.velocity = Vector2.zero;
-            currentStates = State.betweenRooms;
+            outsideYourRoom = other.gameObject;
         }
     }
 
     void DamageDoor() {
         //doorScript.TakeDamage((float)Random.Range(2, 6));
-        doorScript.TakeDamage(50);
+        doorScript.TakeDamage(100);
         CancelInvoke();
     }
 

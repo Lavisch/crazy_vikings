@@ -8,6 +8,9 @@ TagManager:
   - Door
   - idleBorder
   - outside
+  - Prisoner
+  - rightOfDoor
+  - leftOfDoor
   layers:
   - Default
   - TransparentFX

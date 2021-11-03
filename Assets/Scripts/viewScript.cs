@@ -12,28 +12,23 @@ public class viewScript:MonoBehaviour {
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.Alpha1)) {
-            selectedCamera = 0;
-            changeCamera(selectedCamera);
+            changeCamera(0);
         } else if(Input.GetKeyDown(KeyCode.Alpha2)) {
-            selectedCamera = 1;
-            changeCamera(selectedCamera);
+            changeCamera(1);
         } else if(Input.GetKeyDown(KeyCode.Alpha3)) {
-            selectedCamera = 2;
-            changeCamera(selectedCamera);
+            changeCamera(2);
         } else if(Input.GetKeyDown(KeyCode.Alpha4)) {
-            selectedCamera = 3;
-            changeCamera(selectedCamera);
+            changeCamera(3);
         } else if(Input.GetKeyDown(KeyCode.Alpha5)) {
-            selectedCamera = 4;
-            changeCamera(selectedCamera);
+            changeCamera(4);
         } else if(Input.GetKeyDown(KeyCode.Alpha6)) {
-            selectedCamera = 5;
-            changeCamera(selectedCamera);
+            changeCamera(5);
         }
     }
 
     public void changeCamera(int pressedCamera) {
         staticVideo.SetActive(true);
+        selectedCamera = pressedCamera;
         staticSFX.Play();
         for(int i = 0; i < cameraArray.Length; i++) {
             if(i == pressedCamera) {
@@ -49,5 +44,6 @@ public class viewScript:MonoBehaviour {
     void dissableStaticVideo() {
         staticVideo.SetActive(false);
         staticSFX.Stop();
+        CancelInvoke();
     }
 }
