@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Prisoner : MonoBehaviour
 {
-    [SerializeField] GameObject playerInfrontOfDoor, outsideRoom;
+    [SerializeField] GameObject playerInfrontOfDoor, outsideYourRoom;
+    [SerializeField] GameObject[] outsideOtherCells;
     [SerializeField] Transform findDoor, inBed;
     [SerializeField] int prisonerNumber;
     [SerializeField] Door doorScript;
@@ -16,7 +17,7 @@ public class Prisoner : MonoBehaviour
     bool isolationCell = false;
     bool atDoor = false;
 
-    enum State {Idle, BreakDoor, betweenRooms, Isolated};
+    enum State {Idle, breakDoor, betweenRooms, Isolated, attackingOtherPrisoner, electrocuted, gasedToSleep};
     State currentStates;
 
     void Start() {
@@ -27,8 +28,8 @@ public class Prisoner : MonoBehaviour
     void Update() {
         //Temp input
         if(Input.GetKeyDown(KeyCode.Space)) {
-            if(currentStates != State.BreakDoor) {
-                currentStates = State.BreakDoor;
+            if(currentStates != State.breakDoor) {
+                currentStates = State.breakDoor;
             } else {
                 currentStates = State.Idle;
             }
@@ -41,12 +42,21 @@ public class Prisoner : MonoBehaviour
             case State.Idle:
                 Invoke("Idle01", Random.Range(3, 6));
                 break;
-            case State.BreakDoor:
+            case State.breakDoor:
                 BreakDoor();
                 break;
             case State.betweenRooms:
                 rgbd2D.transform.position = new Vector2(-40, -40);
-                Invoke("AttackOtherCell", 20f);
+                Invoke("AttackOtherCell", 10f);
+                break;
+            case State.attackingOtherPrisoner:
+
+                break;
+            case State.electrocuted:
+
+                break;
+            case State.gasedToSleep:
+
                 break;
             case State.Isolated:
                 rgbd2D.transform.position = new Vector2(-50, -50);
@@ -81,8 +91,8 @@ public class Prisoner : MonoBehaviour
             //playAnimation
             Invoke("DamageDoor", 2f);
         } else if(doorScript.healthPoints <= 0) {
-            if(rgbd2D.position.x != outsideRoom.transform.position.x) {
-                var findPos = outsideRoom.transform.position - transform.position;
+            if(rgbd2D.position.x != outsideYourRoom.transform.position.x) {
+                var findPos = outsideYourRoom.transform.position - transform.position;
                 rgbd2D.MovePosition(transform.position + (findPos * speed * Time.deltaTime));
             }
         }
