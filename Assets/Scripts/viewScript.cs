@@ -8,20 +8,27 @@ public class viewScript:MonoBehaviour {
     [SerializeField] GameObject staticVideo;
     [SerializeField] AudioSource staticSFX; 
     [SerializeField] Text cellNumberText;
+    public int selectedCamera;
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.Alpha1)) {
-            changeCamera(0);
+            selectedCamera = 0;
+            changeCamera(selectedCamera);
         } else if(Input.GetKeyDown(KeyCode.Alpha2)) {
-            changeCamera(1);
+            selectedCamera = 1;
+            changeCamera(selectedCamera);
         } else if(Input.GetKeyDown(KeyCode.Alpha3)) {
-            changeCamera(2);
+            selectedCamera = 2;
+            changeCamera(selectedCamera);
         } else if(Input.GetKeyDown(KeyCode.Alpha4)) {
-            changeCamera(3);
+            selectedCamera = 3;
+            changeCamera(selectedCamera);
         } else if(Input.GetKeyDown(KeyCode.Alpha5)) {
-            changeCamera(4);
+            selectedCamera = 4;
+            changeCamera(selectedCamera);
         } else if(Input.GetKeyDown(KeyCode.Alpha6)) {
-            changeCamera(5);
+            selectedCamera = 5;
+            changeCamera(selectedCamera);
         }
     }
 
