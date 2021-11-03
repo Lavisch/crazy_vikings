@@ -6,15 +6,18 @@ public class Prisoner : MonoBehaviour
 {
     [SerializeField] GameObject playerInfrontOfDoor, outsideYourRoom;
     [SerializeField] GameObject[] outsideOtherCells;
-    [SerializeField] Transform findDoor, inBed;
-    [SerializeField] int prisonerNumber;
+    [SerializeField] public int prisonerNumber;
+    [SerializeField] GameObject[] enemyDoors;
+    [SerializeField] Transform findDoor;
     [SerializeField] Door doorScript;
     private Rigidbody2D rgbd2D;
+    int randomCellNumberAttack;
     float health = 100f;
     float stress = 0f;
     float speed = 5f;
 
     bool isolationCell = false;
+    public bool dead = false;
     bool atDoor = false;
 
     enum State {Idle, breakDoor, betweenRooms, Isolated, attackingOtherPrisoner, electrocuted, gasedToSleep};
@@ -46,17 +49,22 @@ public class Prisoner : MonoBehaviour
                 BreakDoor();
                 break;
             case State.betweenRooms:
-                rgbd2D.transform.position = new Vector2(-40, -40);
                 Invoke("AttackOtherCell", 10f);
                 break;
             case State.attackingOtherPrisoner:
-
+                //move to other prisoner
+                //attack said prisoner
                 break;
             case State.electrocuted:
-
+                //take damage
+                //play animation
+                //invoke
+                //change state
                 break;
             case State.gasedToSleep:
-
+                //play animation
+                //invoke
+                //change state
                 break;
             case State.Isolated:
                 rgbd2D.transform.position = new Vector2(-50, -50);
@@ -64,8 +72,6 @@ public class Prisoner : MonoBehaviour
             default:
                 goto case State.Idle;
         }
-        Debug.Log(currentStates);
-
     }
 
     void Idle01() {
@@ -85,21 +91,24 @@ public class Prisoner : MonoBehaviour
     void BreakDoor() {
         if(!atDoor && !doorScript.destroyed) {
             MoveTo(findDoor);
+
         } else if(doorScript.healthPoints > 0) {
             rgbd2D.transform.position = playerInfrontOfDoor.transform.position;
             rgbd2D.rotation = 0;
             //playAnimation
             Invoke("DamageDoor", 2f);
+
         } else if(doorScript.healthPoints <= 0) {
             if(rgbd2D.position.x != outsideYourRoom.transform.position.x) {
                 var findPos = outsideYourRoom.transform.position - transform.position;
-                rgbd2D.MovePosition(transform.position + (findPos * speed * Time.deltaTime));
+                rgbd2D.MovePosition(transform.position + (findPos * (speed/2) * Time.deltaTime));
             }
         }
     }
 
     void AttackOtherCell() {
-        
+        rgbd2D.transform.position = outsideOtherCells[randomCellNumberAttack].transform.position;
+
     }
 
     void MoveTo(Transform directionPoint) {
@@ -113,10 +122,14 @@ public class Prisoner : MonoBehaviour
         if(other.gameObject.CompareTag("Door")) {
             atDoor = true;
         }
+
         if(other.gameObject.CompareTag("idleBorder")) {
             rgbd2D.velocity = Vector2.zero;
         }
+
         if(other.gameObject.CompareTag("outside")) {
+            randomCellNumberAttack = Random.Range(0, outsideOtherCells.Length);
+            rgbd2D.transform.position = new Vector2(-40, -40);
             rgbd2D.velocity = Vector2.zero;
             currentStates = State.betweenRooms;
         }
