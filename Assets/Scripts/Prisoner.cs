@@ -85,11 +85,16 @@ public class Prisoner : MonoBehaviour
         if(other.gameObject.CompareTag("idleBorder")) {
             Debug.Log("Hit");
             rgbd2D.velocity = Vector2.zero;
+            rgbd2D.rotation = -rgbd2D.rotation;
         }
     }
 
     void DamageDoor() {
         doorScript.TakeDamage((float)Random.Range(2, 6));
         CancelInvoke();
+    }
+
+    public void TakeDamage(float minusHealth) {
+
     }
 }

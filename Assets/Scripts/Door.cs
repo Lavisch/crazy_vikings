@@ -24,7 +24,7 @@ public class Door : MonoBehaviour
 
     void OpenDoor() {
         if(destroyed) {
-            Debug.Log("Sad Life");
+            Debug.Log("Door Dead");
         }
     }
 }
