@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Prisoner : MonoBehaviour
 {
+    GameObject playerInfrontOfDoor, tempLeftCalc, tempRightCalc, outsideYourRoom, enemyPrisoner;
     [SerializeField] GameObject[] outsideOtherCells;
     [SerializeField] public int prisonerNumber;
-    GameObject playerInfrontOfDoor, tempLeftCalc, tempRightCalc, outsideYourRoom;
+    Prisoner enemyPrisonerScript;
     private Rigidbody2D rgbd2D;
     int randomCellNumberAttack;
-    float health = 100f;
+    public float health = 100f;
     Transform findDoor;
     float stress = 0f;
     float speed = 5f;
@@ -19,7 +20,7 @@ public class Prisoner : MonoBehaviour
     public bool dead = false;
     bool atDoor = false;
 
-    public enum State {Idle, breakDoor, betweenRooms, attackOtherDoor, Isolated, attackingOtherPrisoner, electrocuted, gasedToSleep};
+    public enum State {Idle, breakDoor, betweenRooms, attackOtherDoor, Isolated, attackingOtherPrisoner, electrocuted, gasedToSleep, dead};
     public State currentStates;
 
     void Start() {
@@ -36,6 +37,7 @@ public class Prisoner : MonoBehaviour
                 currentStates = State.Idle;
             }
         }
+
         if(isolationCell) currentStates = State.Isolated;
 
         if (health <= 0) dead = true;
@@ -54,8 +56,8 @@ public class Prisoner : MonoBehaviour
                 EnemyDoor();
                 break;
             case State.attackingOtherPrisoner:
-                //move to other prisoner
-                //attack said prisoner
+                AttackPrisoner();
+                
                 break;
             case State.electrocuted:
                 //take damage
@@ -69,8 +71,11 @@ public class Prisoner : MonoBehaviour
                 //change state
                 break;
             case State.Isolated:
-                rgbd2D.transform.position = new Vector2(-50, -50);
-                break; 
+                rgbd2D.transform.position = new Vector2(-50*prisonerNumber, -50*prisonerNumber);
+                break;
+            case State.dead:
+                //animation
+                break;
             default:
                 goto case State.Idle;
         }
@@ -116,7 +121,7 @@ public class Prisoner : MonoBehaviour
                 rgbd2D.MovePosition(transform.position + (findPos * (speed / 2) * Time.deltaTime));
             } else {
                 randomCellNumberAttack = Random.Range(0, outsideOtherCells.Length);
-                rgbd2D.transform.position = new Vector2(-40, -40);
+                rgbd2D.transform.position = new Vector2(-25, -25);
                 rgbd2D.velocity = Vector2.zero;
                 currentStates = State.betweenRooms;
             }
@@ -150,7 +155,29 @@ public class Prisoner : MonoBehaviour
             //playAnimation
             Invoke("DamageDoor", 2f);
 
+        } else if(doorScript.healthPoints <= 0 && currentStates == State.attackOtherDoor) {
+            currentStates = State.attackingOtherPrisoner;
         }
+    }
+
+    void AttackPrisoner() {
+        if(!dead && enemyPrisonerScript.health > 0) {
+            var findPos = enemyPrisoner.transform.position - transform.position;
+            float angle = Mathf.Atan2(findPos.y, findPos.x) * Mathf.Rad2Deg;
+            rgbd2D.rotation = angle;
+            rgbd2D.MovePosition(rgbd2D.transform.position + (findPos * speed * Time.deltaTime));
+            if(Vector3.Distance(rgbd2D.transform.position, enemyPrisoner.transform.position) > 0.1f) {
+                Invoke("DamageGiveToPrisoner", 2f);
+            }
+        } else if(enemyPrisonerScript.health <= 0){
+            enemyPrisonerScript.dead = true;
+        }
+    }
+
+    void DamageGiveToPrisoner() {
+        float damage = Random.Range(10, 15);
+        enemyPrisonerScript.health -= damage;
+        CancelInvoke();
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -173,6 +200,11 @@ public class Prisoner : MonoBehaviour
 
         if(other.gameObject.CompareTag("outside")) {
             outsideYourRoom = other.gameObject;
+        }
+
+        if(other.gameObject.CompareTag("Prisoner")) {
+            enemyPrisoner = other.gameObject;
+            enemyPrisonerScript = enemyPrisoner.GetComponent<Prisoner>();
         }
     }
 
