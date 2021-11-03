@@ -20,8 +20,8 @@ public class Prisoner : MonoBehaviour
     public bool dead = false;
     bool atDoor = false;
 
-    enum State {Idle, breakDoor, betweenRooms, Isolated, attackingOtherPrisoner, electrocuted, gasedToSleep};
-    State currentStates;
+    public enum State {Idle, breakDoor, betweenRooms, Isolated, attackingOtherPrisoner, electrocuted, gasedToSleep};
+    public State currentStates;
 
     void Start() {
         rgbd2D = GetComponent<Rigidbody2D>();
@@ -40,6 +40,8 @@ public class Prisoner : MonoBehaviour
         if(isolationCell) {
             currentStates = State.Isolated;
         }
+        if (health <= 0)
+            dead = true;
 
         switch (currentStates) {
             case State.Idle:
@@ -142,6 +144,6 @@ public class Prisoner : MonoBehaviour
     }
 
     public void TakeDamage(float minusHealth) {
-
+        health -= minusHealth;
     }
 }
