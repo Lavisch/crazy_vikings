@@ -132,8 +132,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c22653f740fb34949b0f6588875f88af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &52546513
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,8 +516,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 0.08220887, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
@@ -641,9 +641,9 @@ VideoPlayer:
   m_AudioOutputMode: 0
   m_TargetAudioSources: []
   m_DirectAudioVolumes: []
-  m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
+  m_Url:
+  m_EnabledAudioTracks:
+  m_DirectAudioMutes:
   m_ControlledAudioTrackCount: 0
   m_PlayOnAwake: 1
   m_SkipOnDrop: 0
@@ -916,8 +916,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -1052,8 +1052,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -1292,8 +1292,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Navigation:
     m_Mode: 3
     m_WrapAround: 0
@@ -1335,7 +1335,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &313200872
@@ -1348,8 +1348,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
@@ -1427,8 +1427,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Navigation:
     m_Mode: 3
     m_WrapAround: 0
@@ -1470,7 +1470,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 20
-          m_StringArgument: 
+          m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &325692689
@@ -1618,8 +1618,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.49019608}
   m_RaycastTarget: 1
@@ -1702,9 +1702,9 @@ VideoPlayer:
   m_AudioOutputMode: 0
   m_TargetAudioSources: []
   m_DirectAudioVolumes: []
-  m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
+  m_Url:
+  m_EnabledAudioTracks:
+  m_DirectAudioMutes:
   m_ControlledAudioTrackCount: 0
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
@@ -1725,19 +1725,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: findDoor
-      value: 
+      value:
       objectReference: {fileID: 165092469}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: doorScript
-      value: 
+      value:
       objectReference: {fileID: 1373238491}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: leftOfDoor
-      value: 
+      value:
       objectReference: {fileID: 972055315}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: frontOfDoor
-      value: 
+      value:
       objectReference: {fileID: 988453268}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: prisonerNumber
@@ -1745,7 +1745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: playerInfrontOfDoor
-      value: 
+      value:
       objectReference: {fileID: 972055315}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.size
@@ -1753,23 +1753,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 1658809890}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[1]
-      value: 
+      value:
       objectReference: {fileID: 1036671316}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[2]
-      value: 
+      value:
       objectReference: {fileID: 787969391}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[3]
-      value: 
+      value:
       objectReference: {fileID: 1365712655}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[4]
-      value: 
+      value:
       objectReference: {fileID: 1315488264}
     - target: {fileID: 2430536320157563790, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: m_Radius
@@ -1869,8 +1869,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c22653f740fb34949b0f6588875f88af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &413988914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,8 +2000,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -2284,19 +2284,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: findDoor
-      value: 
+      value:
       objectReference: {fileID: 165092469}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: doorScript
-      value: 
+      value:
       objectReference: {fileID: 1373238491}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: leftOfDoor
-      value: 
+      value:
       objectReference: {fileID: 972055315}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: frontOfDoor
-      value: 
+      value:
       objectReference: {fileID: 988453268}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: prisonerNumber
@@ -2304,7 +2304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: playerInfrontOfDoor
-      value: 
+      value:
       objectReference: {fileID: 972055315}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.size
@@ -2312,23 +2312,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 1658809890}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[1]
-      value: 
+      value:
       objectReference: {fileID: 1036671316}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[2]
-      value: 
+      value:
       objectReference: {fileID: 787969391}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[3]
-      value: 
+      value:
       objectReference: {fileID: 1365712655}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[4]
-      value: 
+      value:
       objectReference: {fileID: 821257284}
     - target: {fileID: 2430536320157563790, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: m_Radius
@@ -2428,8 +2428,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c22653f740fb34949b0f6588875f88af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &495074978
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,19 +2500,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: findDoor
-      value: 
+      value:
       objectReference: {fileID: 165092469}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: doorScript
-      value: 
+      value:
       objectReference: {fileID: 1373238491}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: leftOfDoor
-      value: 
+      value:
       objectReference: {fileID: 972055315}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: frontOfDoor
-      value: 
+      value:
       objectReference: {fileID: 988453268}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: prisonerNumber
@@ -2520,7 +2520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: playerInfrontOfDoor
-      value: 
+      value:
       objectReference: {fileID: 972055315}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.size
@@ -2528,23 +2528,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 1658809890}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[1]
-      value: 
+      value:
       objectReference: {fileID: 787969391}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[2]
-      value: 
+      value:
       objectReference: {fileID: 1365712655}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[3]
-      value: 
+      value:
       objectReference: {fileID: 1315488264}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[4]
-      value: 
+      value:
       objectReference: {fileID: 821257284}
     - target: {fileID: 2430536320157563790, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: m_Radius
@@ -2648,8 +2648,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c22653f740fb34949b0f6588875f88af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &564662744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,8 +2696,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Navigation:
     m_Mode: 0
     m_WrapAround: 0
@@ -2765,8 +2765,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -2784,8 +2784,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
@@ -3089,8 +3089,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
@@ -3189,8 +3189,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fc55a468fa2d7344ae6da1a0d449bdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   peopleInRoom: 1
   roomID: 2
 --- !u!1 &796095507
@@ -3240,8 +3240,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -3393,8 +3393,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fc55a468fa2d7344ae6da1a0d449bdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   peopleInRoom: 1
   roomID: 5
 --- !u!1 &870931175
@@ -3445,8 +3445,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
@@ -3524,8 +3524,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
@@ -3603,8 +3603,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -3682,8 +3682,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -3835,8 +3835,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
@@ -3876,19 +3876,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: findDoor
-      value: 
+      value:
       objectReference: {fileID: 165092469}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: doorScript
-      value: 
+      value:
       objectReference: {fileID: 1373238491}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: leftOfDoor
-      value: 
+      value:
       objectReference: {fileID: 972055315}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: frontOfDoor
-      value: 
+      value:
       objectReference: {fileID: 988453268}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: prisonerNumber
@@ -3896,7 +3896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: playerInfrontOfDoor
-      value: 
+      value:
       objectReference: {fileID: 972055315}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.size
@@ -3904,23 +3904,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 1658809890}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[1]
-      value: 
+      value:
       objectReference: {fileID: 1036671316}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[2]
-      value: 
+      value:
       objectReference: {fileID: 1365712655}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[3]
-      value: 
+      value:
       objectReference: {fileID: 1315488264}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[4]
-      value: 
+      value:
       objectReference: {fileID: 821257284}
     - target: {fileID: 2430536320157563790, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: m_Radius
@@ -4020,8 +4020,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c22653f740fb34949b0f6588875f88af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &951287938
 GameObject:
   m_ObjectHideFlags: 0
@@ -4228,19 +4228,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: findDoor
-      value: 
+      value:
       objectReference: {fileID: 165092469}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: doorScript
-      value: 
+      value:
       objectReference: {fileID: 1373238491}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: leftOfDoor
-      value: 
+      value:
       objectReference: {fileID: 972055315}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: frontOfDoor
-      value: 
+      value:
       objectReference: {fileID: 988453268}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: prisonerNumber
@@ -4248,7 +4248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: playerInfrontOfDoor
-      value: 
+      value:
       objectReference: {fileID: 972055315}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.size
@@ -4256,23 +4256,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 1658809890}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[1]
-      value: 
+      value:
       objectReference: {fileID: 1036671316}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[2]
-      value: 
+      value:
       objectReference: {fileID: 787969391}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[3]
-      value: 
+      value:
       objectReference: {fileID: 1315488264}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[4]
-      value: 
+      value:
       objectReference: {fileID: 821257284}
     - target: {fileID: 2430536320157563790, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: m_Radius
@@ -4372,8 +4372,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c22653f740fb34949b0f6588875f88af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &1027444951
 GameObject:
   m_ObjectHideFlags: 0
@@ -4459,8 +4459,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Navigation:
     m_Mode: 3
     m_WrapAround: 0
@@ -4502,7 +4502,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1033190234
@@ -4515,8 +4515,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
@@ -4594,8 +4594,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Navigation:
     m_Mode: 3
     m_WrapAround: 0
@@ -4637,7 +4637,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 20
-          m_StringArgument: 
+          m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &1033583205
@@ -4790,8 +4790,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fc55a468fa2d7344ae6da1a0d449bdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   peopleInRoom: 1
   roomID: 1
 --- !u!1001 &1041679787
@@ -4807,31 +4807,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: findDoor
-      value: 
+      value:
       objectReference: {fileID: 165092469}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: doorScript
-      value: 
+      value:
       objectReference: {fileID: 1373238491}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: leftOfDoor
-      value: 
+      value:
       objectReference: {fileID: 972055315}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: frontOfDoor
-      value: 
+      value:
       objectReference: {fileID: 988453268}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideRoom
-      value: 
+      value:
       objectReference: {fileID: 1658809890}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideYourRoom
-      value: 
+      value:
       objectReference: {fileID: 1658809890}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: playerInfrontOfDoor
-      value: 
+      value:
       objectReference: {fileID: 972055315}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.size
@@ -4839,23 +4839,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 1036671316}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[1]
-      value: 
+      value:
       objectReference: {fileID: 787969391}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[2]
-      value: 
+      value:
       objectReference: {fileID: 1365712655}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[3]
-      value: 
+      value:
       objectReference: {fileID: 1315488264}
     - target: {fileID: -6563932201563289486, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: outsideOtherCells.Array.data[4]
-      value: 
+      value:
       objectReference: {fileID: 821257284}
     - target: {fileID: 2430536320157563790, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: m_Radius
@@ -5057,8 +5057,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -5132,8 +5132,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.09803922}
   m_RaycastTarget: 1
@@ -5209,8 +5209,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Navigation:
     m_Mode: 3
     m_WrapAround: 0
@@ -5252,7 +5252,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1154714257
@@ -5265,8 +5265,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
@@ -5397,8 +5397,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -5458,8 +5458,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d43850e64565abe488c7b93a82161188, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   cameraArray:
   - {fileID: 2030898988}
   - {fileID: 1400927177}
@@ -5597,8 +5597,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eccdca28533b02d428d07b5c6825f877, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   getCamViewNumber: {fileID: 1196876934}
   prisonerScript:
   - {fileID: 22928958}
@@ -5609,6 +5609,8 @@ MonoBehaviour:
   - {fileID: 402807133}
   electrocuteBar: {fileID: 1432722827}
   gasBar: {fileID: 564662746}
+  electrocuteFill: {fileID: 1375562231}
+  gasFill: {fileID: 155316745}
 --- !u!1 &1230043873
 GameObject:
   m_ObjectHideFlags: 0
@@ -6004,8 +6006,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fc55a468fa2d7344ae6da1a0d449bdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   peopleInRoom: 1
   roomID: 4
 --- !u!1 &1315978645
@@ -6195,8 +6197,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fc55a468fa2d7344ae6da1a0d449bdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   peopleInRoom: 1
   roomID: 3
 --- !u!114 &1373238491 stripped
@@ -6208,8 +6210,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d68caf146de685d49a8c8b9daab3950e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &1375562229
 GameObject:
   m_ObjectHideFlags: 0
@@ -6257,8 +6259,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
@@ -6391,8 +6393,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Navigation:
     m_Mode: 3
     m_WrapAround: 0
@@ -6434,7 +6436,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1395617908
@@ -6447,8 +6449,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
@@ -6917,8 +6919,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Navigation:
     m_Mode: 0
     m_WrapAround: 0
@@ -7076,8 +7078,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_IgnoreReversedGraphics: 1
   m_BlockingObjects: 0
   m_BlockingMask:
@@ -7093,8 +7095,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
@@ -7351,8 +7353,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fc55a468fa2d7344ae6da1a0d449bdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   peopleInRoom: 1
   roomID: 0
 --- !u!1 &1660337028
@@ -7404,8 +7406,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
@@ -7442,8 +7444,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Navigation:
     m_Mode: 3
     m_WrapAround: 0
@@ -7485,7 +7487,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!4 &1660683297 stripped
@@ -7583,8 +7585,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -7749,8 +7751,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Navigation:
     m_Mode: 3
     m_WrapAround: 0
@@ -7792,7 +7794,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 5
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1805612283
@@ -7805,8 +7807,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
@@ -8267,8 +8269,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
