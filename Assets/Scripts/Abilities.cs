@@ -36,7 +36,6 @@ public class Abilities : MonoBehaviour
 
             electrocuteUses -= 1;
             electrocuteReady = false;
-            Debug.Log("Elec button works");
         }
 
         electrocuteBar.value = electrocuteUses;
@@ -55,7 +54,6 @@ public class Abilities : MonoBehaviour
 
             gasUses -= 1;
             gasReady = false;
-            Debug.Log("Gas button works");
         }
         gasBar.value = gasUses;
     }
