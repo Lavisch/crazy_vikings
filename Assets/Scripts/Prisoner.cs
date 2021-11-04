@@ -22,23 +22,17 @@ public class Prisoner : MonoBehaviour
     bool atDoor = false;
 
     public enum State {Idle, breakDoor, betweenRooms, attackOtherDoor, Isolated, attackingOtherPrisoner, backOutside, electrocuted, gasedToSleep, dead};
+    public State tempHoldState;
     public State currentStates;
 
     void Start() {
         rgbd2D = GetComponent<Rigidbody2D>();
         currentStates = State.Idle;
+        stress = Random.Range(1, 8);
     }
 
     void Update() {
-        //Temp input
-        if(Input.GetKeyDown(KeyCode.Space) && prisonerNumber == 0) {
-            if(currentStates != State.breakDoor) {
-                currentStates = State.breakDoor;
-            } else {
-                currentStates = State.Idle;
-            }
-        }
-
+        
         if(isolationCell) currentStates = State.Isolated;
 
         if (health <= 0) dead = true;
@@ -63,14 +57,19 @@ public class Prisoner : MonoBehaviour
                 newCell();
                 break;
             case State.electrocuted:
-                //play animation
-                rgbd2D.velocity = Vector3.zero;
-                Invoke(nameof(electrocutedSleep), 10f);
-                //change state
+                if(!dead) {
+                    stress += Random.Range(10, 25);
+                    rgbd2D.velocity = Vector3.zero;
+                }
+                Invoke(nameof(electrocutedSleep), 5f);
                 break;
             case State.gasedToSleep:
                 //play animation
-                //invoke
+                if(!dead) {
+                    stress += Random.Range(10, 25);
+                    rgbd2D.velocity = Vector3.zero;
+                }
+                Invoke(nameof(sleepingGas), 15f);
                 //change state
                 break;
             case State.Isolated:
@@ -86,7 +85,12 @@ public class Prisoner : MonoBehaviour
     }
 
     void electrocutedSleep() {
-        currentStates = State.Idle;
+        currentStates = tempHoldState;
+        CancelInvoke();
+    }
+
+    void sleepingGas() {
+        currentStates = tempHoldState;
         CancelInvoke();
     }
 
@@ -94,8 +98,12 @@ public class Prisoner : MonoBehaviour
         rgbd2D.rotation = Random.Range(0, 360);
         rgbd2D.velocity = Vector2.zero;
         CancelInvoke();
-        if(Random.Range(0, 100) < 75) {
-            Invoke(nameof(Idle02), 2f);
+        if((Random.Range(0, 100) + stress) > 100) {
+            currentStates = State.breakDoor;
+        } else if(Random.Range(0, 100) > 20 && currentStates == State.Idle) {
+            Invoke(nameof(Idle02), 1f);
+        } else {
+            currentStates = State.Idle;
         }
     }
 
@@ -193,8 +201,7 @@ public class Prisoner : MonoBehaviour
     }
 
     void DamageGiveToPrisoner() {
-        //float damage = Random.Range(10, 15);
-        float damage = 100;
+        float damage = Random.Range(10, 15);
         enemyPrisonerScript.health -= damage;
         CancelInvoke();
     }
@@ -203,7 +210,6 @@ public class Prisoner : MonoBehaviour
         if(!atDoor) {
             if(rgbd2D.transform.position.y < 0.5f && rgbd2D.transform.position.y > -0.5f) {
                 atDoor = true;
-                Debug.Log("Nani");
             } else {
                 if(rgbd2D.transform.position.y > 0.15f) {
                     rgbd2D.velocity = new Vector2(0, -speed);
@@ -213,9 +219,7 @@ public class Prisoner : MonoBehaviour
                     rgbd2D.rotation = 90;
                 }
             }
-            Debug.Log("Not at door");
         } else {
-            Debug.Log("At door");
             if(Vector3.Distance(rgbd2D.transform.position, outsideYourRoom.transform.position) < 1f) {
                 roomHolderScript.peopleInRoom = 0;
                 rgbd2D.transform.position = new Vector2(-25, -25);
