@@ -1767,6 +1767,14 @@ PrefabInstance:
       propertyPath: playerInfrontOfDoor
       value: 
       objectReference: {fileID: 972055315}
+    - target: {fileID: 23378383910444027, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23378383910444027, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2430536320157563790, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: m_Radius
       value: 12
@@ -3684,6 +3692,18 @@ PrefabInstance:
       propertyPath: outsideOtherCells.Array.data[0]
       value: 
       objectReference: {fileID: 1036671316}
+    - target: {fileID: 23378383910444027, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23378383910444027, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073150368582102162, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2430536320157563790, guid: a66142c54aff1294193aa69a42dbd655, type: 3}
       propertyPath: m_Radius
       value: 12
@@ -4310,6 +4330,8 @@ MonoBehaviour:
   - {fileID: 402807133}
   electrocuteBar: {fileID: 1432722827}
   gasBar: {fileID: 564662746}
+  electrocuteFill: {fileID: 1375562231}
+  gasFill: {fileID: 155316745}
 --- !u!1 &1230043873
 GameObject:
   m_ObjectHideFlags: 0

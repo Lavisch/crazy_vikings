@@ -8,6 +8,7 @@ public class Abilities : MonoBehaviour
     [SerializeField] viewScript getCamViewNumber;
     [SerializeField] Prisoner[] prisonerScript;
     [SerializeField] Slider electrocuteBar, gasBar;
+    [SerializeField] Image electrocuteFill, gasFill;
 
     float electrocuteCooldown = 4;
     bool electrocuteReady = true;
@@ -36,14 +37,15 @@ public class Abilities : MonoBehaviour
 
             electrocuteUses -= 1;
             electrocuteReady = false;
-            Debug.Log("Elec button works");
         }
 
+        electrocuteFill.color = Color.gray;
         electrocuteBar.value = electrocuteUses;
     }
 
     void ElectrocuteWait() {
         electrocuteReady = true;
+        electrocuteFill.color = Color.yellow;
     }
 
     public void Gas()
@@ -55,12 +57,13 @@ public class Abilities : MonoBehaviour
 
             gasUses -= 1;
             gasReady = false;
-            Debug.Log("Gas button works");
         }
+        gasFill.color = Color.gray;
         gasBar.value = gasUses;
     }
 
     void GasWait() {
+        gasFill.color = Color.green;
         gasReady = true;
     }
 }
