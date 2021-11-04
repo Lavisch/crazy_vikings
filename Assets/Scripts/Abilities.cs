@@ -13,10 +13,8 @@ public class Abilities : MonoBehaviour
     float gasCooldown = 6;
     bool gasReady = true;
 
-    public void Electrocute()
-    {
-        if (electrocuteReady)
-        {
+    public void Electrocute() {
+        if (electrocuteReady) {
             prisonerScript[getCamViewNumber.selectedCamera].TakeDamage(20);
             prisonerScript[getCamViewNumber.selectedCamera].currentStates = Prisoner.State.electrocuted;
             electrocuteReady = false;
@@ -24,23 +22,19 @@ public class Abilities : MonoBehaviour
         }
     }
 
-    void ElectrocuteWait()
-    {
+    void ElectrocuteWait() {
         electrocuteReady = true;
     }
 
-    public void Gas()
-    {
-        if (gasReady)
-        {
+    public void Gas() {
+        if (gasReady) {
             prisonerScript[getCamViewNumber.selectedCamera].currentStates = Prisoner.State.gasedToSleep;
             gasReady = false;
             Invoke(nameof(GasWait), gasCooldown);
         }
     }
 
-    void GasWait()
-    {
+    void GasWait() {
         gasReady = true;
     }
 }

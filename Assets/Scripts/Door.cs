@@ -15,6 +15,7 @@ public class Door : MonoBehaviour {
 
     void Update() {
         if(healthPoints <= 0) {
+            destroyed = true;
             OpenDoor();
         }
     }

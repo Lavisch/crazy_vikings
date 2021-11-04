@@ -7,6 +7,7 @@ public class Prisoner : MonoBehaviour
     GameObject playerInfrontOfDoor, tempLeftCalc, tempRightCalc, outsideYourRoom, enemyPrisoner;
     [SerializeField] GameObject[] outsideOtherCells;
     [SerializeField] public int prisonerNumber;
+    outsideRoomVariableHolder roomHolderScript;
     Prisoner enemyPrisonerScript;
     private Rigidbody2D rgbd2D;
     int randomCellNumberAttack;
@@ -20,7 +21,7 @@ public class Prisoner : MonoBehaviour
     public bool dead = false;
     bool atDoor = false;
 
-    public enum State {Idle, breakDoor, betweenRooms, attackOtherDoor, Isolated, attackingOtherPrisoner, electrocuted, gasedToSleep, dead};
+    public enum State {Idle, breakDoor, betweenRooms, attackOtherDoor, Isolated, attackingOtherPrisoner, backOutside, electrocuted, gasedToSleep, dead};
     public State currentStates;
 
     void Start() {
@@ -30,7 +31,7 @@ public class Prisoner : MonoBehaviour
 
     void Update() {
         //Temp input
-        if(Input.GetKeyDown(KeyCode.Space)) {
+        if(Input.GetKeyDown(KeyCode.Space) && prisonerNumber == 0) {
             if(currentStates != State.breakDoor) {
                 currentStates = State.breakDoor;
             } else {
@@ -44,25 +45,27 @@ public class Prisoner : MonoBehaviour
 
         switch (currentStates) {
             case State.Idle:
-                Invoke("Idle01", Random.Range(3, 6));
+                Invoke(nameof(Idle01), Random.Range(3, 6));
                 break;
             case State.breakDoor:
                 BreakDoor();
                 break;
             case State.betweenRooms:
-                Invoke("AttackOtherCell", 3f);
+                Invoke(nameof(AttackOtherCell), 3f);
                 break;
             case State.attackOtherDoor:
                 EnemyDoor();
                 break;
             case State.attackingOtherPrisoner:
                 AttackPrisoner();
-                
+                break;
+            case State.backOutside:
+                newCell();
                 break;
             case State.electrocuted:
-                //take damage
                 //play animation
-                //invoke
+                rgbd2D.velocity = Vector3.zero;
+                Invoke(nameof(electrocutedSleep), 10f);
                 //change state
                 break;
             case State.gasedToSleep:
@@ -82,12 +85,17 @@ public class Prisoner : MonoBehaviour
         }
     }
 
+    void electrocutedSleep() {
+        currentStates = State.Idle;
+        CancelInvoke();
+    }
+
     void Idle01() {
         rgbd2D.rotation = Random.Range(0, 360);
         rgbd2D.velocity = Vector2.zero;
         CancelInvoke();
-        if(Random.Range(0, 100) < 50) {
-            Invoke("Idle02", 2f);
+        if(Random.Range(0, 100) < 75) {
+            Invoke(nameof(Idle02), 2f);
         }
     }
 
@@ -102,7 +110,7 @@ public class Prisoner : MonoBehaviour
             float angle = Mathf.Atan2(findPos.y, findPos.x) * Mathf.Rad2Deg;
             rgbd2D.rotation = angle;
             rgbd2D.MovePosition(rgbd2D.transform.position + (findPos * speed * Time.deltaTime));
-            if(Vector3.Distance(rgbd2D.transform.position, playerInfrontOfDoor.transform.position) < 0.5f) {
+            if(Vector3.Distance(rgbd2D.transform.position, playerInfrontOfDoor.transform.position) < 2.5f) {
                 atDoor = true;
             }
 
@@ -114,27 +122,34 @@ public class Prisoner : MonoBehaviour
                 rgbd2D.rotation = 0;
             }
             //playAnimation
-            Invoke("DamageDoor", 2f);
+            Invoke(nameof(DamageDoor), 2f);
 
         } else if(doorScript.healthPoints <= 0) {
             if(Vector3.Distance(rgbd2D.transform.position, outsideYourRoom.transform.position) > 0.5f) {
                 var findPos = outsideYourRoom.transform.position - transform.position;
                 rgbd2D.MovePosition(transform.position + (findPos * (speed / 2) * Time.deltaTime));
+
             } else {
-                randomCellNumberAttack = Random.Range(0, outsideOtherCells.Length);
-                rgbd2D.transform.position = new Vector2(-25, -25);
-                rgbd2D.velocity = Vector2.zero;
-                currentStates = State.betweenRooms;
+                 rgbd2D.transform.position = new Vector2(-25, -25);
+                 rgbd2D.velocity = Vector2.zero;
+                 currentStates = State.betweenRooms;
             }
         }
     }
 
     void AttackOtherCell() {
+        randomCellNumberAttack = Random.Range(0, outsideOtherCells.Length);
         rgbd2D.transform.position = outsideOtherCells[randomCellNumberAttack].transform.position;
         atDoor = false;
-        currentStates = State.attackOtherDoor;
-        CancelInvoke();
+        roomHolderScript = outsideOtherCells[randomCellNumberAttack].GetComponent<outsideRoomVariableHolder>();
+        if(roomHolderScript.peopleInRoom == 1) {
+            roomHolderScript.peopleInRoom = 2;
+            prisonerNumber = roomHolderScript.roomID;
+            currentStates = State.attackOtherDoor;
+            CancelInvoke();
+        }
     }
+
 
     void EnemyDoor() {
         if(!atDoor) {
@@ -142,7 +157,7 @@ public class Prisoner : MonoBehaviour
             float angle = Mathf.Atan2(findPos.y, findPos.x) * Mathf.Rad2Deg;
             rgbd2D.rotation = angle;
             rgbd2D.MovePosition(rgbd2D.transform.position + (findPos * speed * Time.deltaTime));
-            if(Vector3.Distance(rgbd2D.transform.position, playerInfrontOfDoor.transform.position) < 0.1f) {
+            if(Vector3.Distance(rgbd2D.transform.position, playerInfrontOfDoor.transform.position) < 2f) {
                 atDoor = true;
             }
 
@@ -154,9 +169,10 @@ public class Prisoner : MonoBehaviour
                 rgbd2D.rotation = 0;
             }
             //playAnimation
-            Invoke("DamageDoor", 2f);
+            Invoke(nameof(DamageDoor), 2f);
 
         } else if(doorScript.healthPoints <= 0) {
+            atDoor = false;
             currentStates = State.attackingOtherPrisoner;
         }
     }
@@ -167,11 +183,12 @@ public class Prisoner : MonoBehaviour
         rgbd2D.rotation = angle;
         rgbd2D.MovePosition(rgbd2D.transform.position + (findPos * speed * Time.deltaTime));
         if(Vector3.Distance(rgbd2D.transform.position, enemyPrisoner.transform.position) < 2.5f && enemyPrisonerScript.health > 0) {
-            Invoke("DamageGiveToPrisoner", 1f);
+            Invoke(nameof(DamageGiveToPrisoner), 1f);
         }
         if(enemyPrisonerScript.health <= 0){
-            enemyPrisonerScript.currentStates = State.dead;
             enemyPrisonerScript.dead = true;
+            enemyPrisonerScript.currentStates = State.dead;
+            currentStates = State.backOutside;
         }
     }
 
@@ -180,6 +197,37 @@ public class Prisoner : MonoBehaviour
         float damage = 100;
         enemyPrisonerScript.health -= damage;
         CancelInvoke();
+    }
+
+    void newCell() {
+        if(!atDoor) {
+            if(rgbd2D.transform.position.y < 0.5f && rgbd2D.transform.position.y > -0.5f) {
+                atDoor = true;
+                Debug.Log("Nani");
+            } else {
+                if(rgbd2D.transform.position.y > 0.15f) {
+                    rgbd2D.velocity = new Vector2(0, -speed);
+                    rgbd2D.rotation = -90;
+                } else if(rgbd2D.transform.position.y < 0.15f) {
+                    rgbd2D.velocity = new Vector2(0, speed);
+                    rgbd2D.rotation = 90;
+                }
+            }
+            Debug.Log("Not at door");
+        } else {
+            Debug.Log("At door");
+            if(Vector3.Distance(rgbd2D.transform.position, outsideYourRoom.transform.position) < 1f) {
+                roomHolderScript.peopleInRoom = 0;
+                rgbd2D.transform.position = new Vector2(-25, -25);
+                rgbd2D.velocity = Vector2.zero;
+                currentStates = State.betweenRooms;
+            } else {
+                var findPos = outsideYourRoom.transform.position - transform.position;
+                float angle = Mathf.Atan2(findPos.y, findPos.x) * Mathf.Rad2Deg;
+                rgbd2D.rotation = angle;
+                rgbd2D.MovePosition(transform.position + (findPos * (speed / 2) * Time.deltaTime));
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -202,6 +250,7 @@ public class Prisoner : MonoBehaviour
 
         if(other.gameObject.CompareTag("outside")) {
             outsideYourRoom = other.gameObject;
+
         }
 
         if(other.gameObject.CompareTag("Prisoner")) {
