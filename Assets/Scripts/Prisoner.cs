@@ -74,6 +74,7 @@ public class Prisoner : MonoBehaviour
                 rgbd2D.transform.position = new Vector2(-50*prisonerNumber, -50*prisonerNumber);
                 break;
             case State.dead:
+                rgbd2D.velocity = Vector2.zero;
                 //animation
                 break;
             default:
@@ -101,7 +102,7 @@ public class Prisoner : MonoBehaviour
             float angle = Mathf.Atan2(findPos.y, findPos.x) * Mathf.Rad2Deg;
             rgbd2D.rotation = angle;
             rgbd2D.MovePosition(rgbd2D.transform.position + (findPos * speed * Time.deltaTime));
-            if(Vector3.Distance(rgbd2D.transform.position, playerInfrontOfDoor.transform.position) < 0.1f) {
+            if(Vector3.Distance(rgbd2D.transform.position, playerInfrontOfDoor.transform.position) < 0.5f) {
                 atDoor = true;
             }
 
@@ -116,7 +117,7 @@ public class Prisoner : MonoBehaviour
             Invoke("DamageDoor", 2f);
 
         } else if(doorScript.healthPoints <= 0) {
-            if(Vector3.Distance(rgbd2D.transform.position, outsideYourRoom.transform.position) > 0.1f) {
+            if(Vector3.Distance(rgbd2D.transform.position, outsideYourRoom.transform.position) > 0.5f) {
                 var findPos = outsideYourRoom.transform.position - transform.position;
                 rgbd2D.MovePosition(transform.position + (findPos * (speed / 2) * Time.deltaTime));
             } else {
@@ -136,7 +137,7 @@ public class Prisoner : MonoBehaviour
     }
 
     void EnemyDoor() {
-        if(!atDoor && !doorScript.destroyed) {
+        if(!atDoor) {
             var findPos = findDoor.position - transform.position;
             float angle = Mathf.Atan2(findPos.y, findPos.x) * Mathf.Rad2Deg;
             rgbd2D.rotation = angle;
@@ -155,27 +156,28 @@ public class Prisoner : MonoBehaviour
             //playAnimation
             Invoke("DamageDoor", 2f);
 
-        } else if(doorScript.healthPoints <= 0 && currentStates == State.attackOtherDoor) {
+        } else if(doorScript.healthPoints <= 0) {
             currentStates = State.attackingOtherPrisoner;
         }
     }
 
     void AttackPrisoner() {
-        if(!dead && enemyPrisonerScript.health > 0) {
-            var findPos = enemyPrisoner.transform.position - transform.position;
-            float angle = Mathf.Atan2(findPos.y, findPos.x) * Mathf.Rad2Deg;
-            rgbd2D.rotation = angle;
-            rgbd2D.MovePosition(rgbd2D.transform.position + (findPos * speed * Time.deltaTime));
-            if(Vector3.Distance(rgbd2D.transform.position, enemyPrisoner.transform.position) > 0.1f) {
-                Invoke("DamageGiveToPrisoner", 2f);
-            }
-        } else if(enemyPrisonerScript.health <= 0){
+        var findPos = enemyPrisoner.transform.position - transform.position;
+        float angle = Mathf.Atan2(findPos.y, findPos.x) * Mathf.Rad2Deg;
+        rgbd2D.rotation = angle;
+        rgbd2D.MovePosition(rgbd2D.transform.position + (findPos * speed * Time.deltaTime));
+        if(Vector3.Distance(rgbd2D.transform.position, enemyPrisoner.transform.position) < 2.5f && enemyPrisonerScript.health > 0) {
+            Invoke("DamageGiveToPrisoner", 1f);
+        }
+        if(enemyPrisonerScript.health <= 0){
+            enemyPrisonerScript.currentStates = State.dead;
             enemyPrisonerScript.dead = true;
         }
     }
 
     void DamageGiveToPrisoner() {
-        float damage = Random.Range(10, 15);
+        //float damage = Random.Range(10, 15);
+        float damage = 100;
         enemyPrisonerScript.health -= damage;
         CancelInvoke();
     }
