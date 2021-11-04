@@ -26,13 +26,12 @@ public class Abilities : MonoBehaviour
         gasBar.value = gasUses;
     }
 
-    public void Electrocute()
-    {
-        if (electrocuteReady && electrocuteUses > 0)
-        {
+    public void Electrocute() {
+        if (electrocuteReady && electrocuteUses > 0) {
             for(int i = 0; i < prisonerScript.Length; i++) {
                 if(prisonerScript[i].prisonerNumber == getCamViewNumber.selectedCamera) {
                     prisonerScript[i].TakeDamage(20);
+                    prisonerScript[i].tempHoldState = prisonerScript[i].currentStates;
                     prisonerScript[i].currentStates = Prisoner.State.electrocuted;
                 }
             }
@@ -49,13 +48,15 @@ public class Abilities : MonoBehaviour
         electrocuteReady = true;
     }
 
-    public void Gas()
-    {
-        if (gasReady && gasUses > 0)
-        {
-            prisonerScript[getCamViewNumber.selectedCamera].currentStates = Prisoner.State.gasedToSleep;
-            Invoke(nameof(GasWait), gasCooldown);
-
+    public void Gas() {
+        if (gasReady && gasUses > 0) {
+            for(int i = 0; i < prisonerScript.Length; i++) {
+                if(prisonerScript[i].prisonerNumber == getCamViewNumber.selectedCamera) {
+                    prisonerScript[i].tempHoldState = prisonerScript[i].currentStates;
+                    prisonerScript[i].currentStates = Prisoner.State.gasedToSleep;
+                }
+            }
+                Invoke(nameof(GasWait), gasCooldown);
             gasUses -= 1;
             gasReady = false;
         }

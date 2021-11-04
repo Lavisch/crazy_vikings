@@ -22,6 +22,7 @@ public class Prisoner : MonoBehaviour
     bool atDoor = false;
 
     public enum State {Idle, breakDoor, betweenRooms, attackOtherDoor, Isolated, attackingOtherPrisoner, backOutside, electrocuted, gasedToSleep, dead};
+    public State tempHoldState;
     public State currentStates;
 
     void Start() {
@@ -56,16 +57,19 @@ public class Prisoner : MonoBehaviour
                 newCell();
                 break;
             case State.electrocuted:
-            //play animation
                 if(!dead) {
                     stress += Random.Range(10, 25);
                     rgbd2D.velocity = Vector3.zero;
-                    Invoke(nameof(electrocutedSleep), 10f);
                 }
+                Invoke(nameof(electrocutedSleep), 5f);
                 break;
             case State.gasedToSleep:
                 //play animation
-                //invoke
+                if(!dead) {
+                    stress += Random.Range(10, 25);
+                    rgbd2D.velocity = Vector3.zero;
+                }
+                Invoke(nameof(sleepingGas), 15f);
                 //change state
                 break;
             case State.Isolated:
@@ -81,7 +85,12 @@ public class Prisoner : MonoBehaviour
     }
 
     void electrocutedSleep() {
-        currentStates = State.Idle;
+        currentStates = tempHoldState;
+        CancelInvoke();
+    }
+
+    void sleepingGas() {
+        currentStates = tempHoldState;
         CancelInvoke();
     }
 
@@ -192,8 +201,7 @@ public class Prisoner : MonoBehaviour
     }
 
     void DamageGiveToPrisoner() {
-        //float damage = Random.Range(10, 15);
-        float damage = 100;
+        float damage = Random.Range(10, 15);
         enemyPrisonerScript.health -= damage;
         CancelInvoke();
     }
