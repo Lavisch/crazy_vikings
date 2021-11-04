@@ -30,10 +30,14 @@ public class Abilities : MonoBehaviour
     {
         if (electrocuteReady && electrocuteUses > 0)
         {
-            prisonerScript[getCamViewNumber.selectedCamera].TakeDamage(20);
-            prisonerScript[getCamViewNumber.selectedCamera].currentStates = Prisoner.State.electrocuted;
-            Invoke(nameof(ElectrocuteWait), electrocuteCooldown);
+            for(int i = 0; i < prisonerScript.Length; i++) {
+                if(prisonerScript[i].prisonerNumber == getCamViewNumber.selectedCamera) {
+                    prisonerScript[i].TakeDamage(20);
+                    prisonerScript[i].currentStates = Prisoner.State.electrocuted;
+                }
+            }
 
+            Invoke(nameof(ElectrocuteWait), electrocuteCooldown);
             electrocuteUses -= 1;
             electrocuteReady = false;
         }
