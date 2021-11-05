@@ -73,7 +73,6 @@ public class Prisoner : MonoBehaviour
                     rgbd2D.velocity = Vector3.zero;
                 }
                 Invoke(nameof(sleepingGas), 15f);
-                //change state
                 break;
             case State.Isolated:
                 rgbd2D.transform.position = new Vector2(-50*prisonerNumber, -50*prisonerNumber);
@@ -143,7 +142,7 @@ public class Prisoner : MonoBehaviour
                 rgbd2D.MovePosition(transform.position + (findPos * (speed / 2) * Time.deltaTime));
 
             } else {
-                 rgbd2D.transform.position = new Vector2(-25, -25);
+                 rgbd2D.transform.position = new Vector2(-25*prisonerNumber, -25*prisonerNumber);
                  rgbd2D.velocity = Vector2.zero;
                  currentStates = State.betweenRooms;
             }
@@ -227,7 +226,7 @@ public class Prisoner : MonoBehaviour
         } else {
             if(Vector3.Distance(rgbd2D.transform.position, outsideYourRoom.transform.position) < 1f) {
                 roomHolderScript.peopleInRoom = 0;
-                rgbd2D.transform.position = new Vector2(-25, -25);
+                rgbd2D.transform.position = new Vector2(-25*prisonerNumber, -25*prisonerNumber);
                 rgbd2D.velocity = Vector2.zero;
                 currentStates = State.betweenRooms;
             } else {

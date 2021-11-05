@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 
 public class viewScript:MonoBehaviour {
+    [SerializeField] Image[] buttonColorChange;
     [SerializeField] GameObject[] cameraArray;
     [SerializeField] GameObject staticVideo;
     [SerializeField] AudioSource staticSFX; 
@@ -32,9 +33,11 @@ public class viewScript:MonoBehaviour {
         staticSFX.Play();
         for(int i = 0; i < cameraArray.Length; i++) {
             if(i == pressedCamera) {
+                buttonColorChange[i].color = Color.green;
                 cellNumberText.text = "Cell " + (pressedCamera + 1).ToString();
                 cameraArray[i].SetActive(true);
             } else {
+                buttonColorChange[i].color = Color.red;
                 cameraArray[i].SetActive(false);
             }
         }
