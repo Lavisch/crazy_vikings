@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class score : MonoBehaviour
 {
     [SerializeField] Text winText, loseText, saleryText;
-    [SerializeField] GameObject buttons, overlay;
+    [SerializeField] GameObject buttons, overlay, credits;
     [SerializeField] Door[] ifDoorsDestroyed;
     [SerializeField] Prisoner[] prisoners;
     [SerializeField] Timer timeScript;
@@ -56,6 +56,7 @@ public class score : MonoBehaviour
         overlay.SetActive(true);
         loseText.gameObject.SetActive(true);
         saleryText.gameObject.SetActive(true);
+        credits.SetActive(true);
         buttons.SetActive(true);
     }
 
@@ -63,6 +64,7 @@ public class score : MonoBehaviour
         overlay.SetActive(true);
         winText.gameObject.SetActive(true);
         saleryText.gameObject.SetActive(true);
+        credits.SetActive(true);
         buttons.SetActive(true);
     }
 
