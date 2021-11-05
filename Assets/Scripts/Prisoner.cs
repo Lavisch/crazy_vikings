@@ -32,14 +32,17 @@ public class Prisoner : MonoBehaviour
     }
 
     void Update() {
-        
+
         if(isolationCell) currentStates = State.Isolated;
 
-        if (health <= 0) dead = true;
+        if(health <= 0) {
+            dead = true;
+            currentStates = State.dead;
+        }
 
         switch (currentStates) {
             case State.Idle:
-                Invoke(nameof(Idle01), Random.Range(3, 6));
+                Invoke(nameof(Idle01), Random.Range(4, 10));
                 break;
             case State.breakDoor:
                 BreakDoor();
@@ -66,7 +69,7 @@ public class Prisoner : MonoBehaviour
             case State.gasedToSleep:
                 //play animation
                 if(!dead) {
-                    stress += Random.Range(10, 25);
+                    stress -= Random.Range(10, 25);
                     rgbd2D.velocity = Vector3.zero;
                 }
                 Invoke(nameof(sleepingGas), 15f);
@@ -103,7 +106,9 @@ public class Prisoner : MonoBehaviour
         } else if(Random.Range(0, 100) > 20 && currentStates == State.Idle) {
             Invoke(nameof(Idle02), 1f);
         } else {
-            currentStates = State.Idle;
+            if(currentStates != State.breakDoor) {
+                currentStates = State.Idle;
+            }
         }
     }
 
@@ -264,8 +269,7 @@ public class Prisoner : MonoBehaviour
     }
 
     void DamageDoor() {
-        //doorScript.TakeDamage((float)Random.Range(2, 6));
-        doorScript.TakeDamage(100);
+        doorScript.TakeDamage((float)Random.Range(2, 6));
         CancelInvoke();
     }
 

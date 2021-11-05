@@ -6,33 +6,30 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] TMP_Text textTimer;
     [SerializeField] bool isRunning = true;
+    [SerializeField] TMP_Text textTimer;
+    public int hours;
 
-    float timer = 0;
-    int gameLength = 180; //Length of a game loop in seconds, real time
     int shiftLength = 21600; //Length of a shift in seconds, fictive time
+    public float timer = 0;
     float timeMultiplier;
+    int gameLength = 180; //Length of a game loop in seconds, real time
 
-    void Start()
-    {
+    void Start() {
         timeMultiplier = shiftLength / gameLength;
     }
 
-    void Update()
-    {
-        if (isRunning)
-        {
+    void Update() {
+        if (isRunning) {
             timer += Time.deltaTime * timeMultiplier;
             DisplayTime();
         }
     }
 
-    private void DisplayTime()
-    {
-        int hours = (int)timer / 3600;
+    private void DisplayTime() {
+        hours = (int)timer / 3600;
         int minutes = ((int)timer % 3600) / 60;
-        int seconds = ((int)timer % 3600) % 60;
-        textTimer.text = string.Format("{0:00}:{1:00}:{2:00}", hours, minutes, seconds);
+        //int seconds = ((int)timer % 3600) % 60;
+        textTimer.text = string.Format("{0:00}:{1:00}:00", hours, minutes/*, seconds*/);
     }
 }
