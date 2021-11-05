@@ -2075,7 +2075,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -35.114197}
-  m_SizeDelta: {x: 181.9427, y: 70.22839}
+  m_SizeDelta: {x: 255.61, y: 70.22839}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1557311815
 MonoBehaviour:
@@ -2098,7 +2098,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 997a43b767814dd0a7642ec9b78cba41, type: 3}
     m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
@@ -2110,7 +2110,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Too many eyes
+  m_Text: Keep them alive
 --- !u!222 &1557311816
 CanvasRenderer:
   m_ObjectHideFlags: 0

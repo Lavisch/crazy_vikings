@@ -269,7 +269,7 @@ public class Prisoner : MonoBehaviour
     }
 
     void DamageDoor() {
-        doorScript.TakeDamage((float)Random.Range(2, 6));
+        doorScript.TakeDamage((float)Random.Range(5, 15));
         CancelInvoke();
     }
 
